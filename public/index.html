@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Contract UI</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
+    <style src="./style.css" ></style>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .submit {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .submit:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .event {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        .event h2 {
+            margin-top: 0;
+        }
+
+        .event p {
+            margin-bottom: 0;
+        }
+
+        .event button {
+            margin-top: 10px;
+        }
+
+        .event input {
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h1>Event Contract UI</h1>
+
+    <label for="eventName">Event Name:</label>
+    <input type="text" id="eventName" placeholder="Enter Event Name">
+
+    <label for="eventDate">Event Date:</label>
+    <input type="datetime-local" id="eventDate">
+
+    <label for="eventPrice">Ticket Price (ETH):</label>
+    <input type="number" id="eventPrice" placeholder="Enter Ticket Price">
+
+    <label for="ticketCount">Ticket Count:</label>
+    <input type="number" id="ticketCount" placeholder="Enter Ticket Count">
+
+    <button onclick="createEvent()">Create Event</button>
+
+    <hr>
+
+    <label for="eventId">Event ID:</label>
+    <input type="number" id="eventId" placeholder="Enter Event ID">
+
+    <label for="buyQuantity">Quantity:</label>
+    <input type="number" id="buyQuantity" placeholder="Enter Quantity">
+
+    <button onclick="buyTicket()">Buy Ticket</button>
+
+    <hr>
+
+    <label for="transferQuantity">Transfer Quantity:</label>
+    <input type="number" id="transferQuantity" placeholder="Enter Quantity">
+
+    <label for="transferTo">Transfer To Address:</label>
+    <input type="text" id="transferTo" placeholder="Enter Recipient Address">
+
+    <button onclick="transferTicket()">Transfer Ticket</button>
+
+    
+    <script src="./Web3.js"></script>
+</body>
+
+</html>
