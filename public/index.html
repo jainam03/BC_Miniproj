@@ -5,10 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Contract UI</title>
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
     <style src="./style.css"></style>
 
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            /* height: 100%;
+            width: 100%; */
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+
+            gap: 1px;
+
+            padding: 10px 0px;
+        }
+
         h1 {
             text-align: center;
         }
@@ -81,7 +103,6 @@
             margin-bottom: 10px;
         }
     </style>
-
 </head>
 
 <body>
@@ -121,9 +142,8 @@
 
     <button onclick="transferTicket()">Transfer Ticket</button>
 
-
-    <script src="./Web3.js"></script>
-    <script type="module" src="/migrations/Eventcontract_migration.js"></script>
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
 </body>
 
 </html>

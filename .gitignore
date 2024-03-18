@@ -16,7 +16,7 @@ Thumbs.db
 /obj/
 
 # Ignore dependencies
-/node_modules/
+node_modules
 /packages/
 
 # Ignore logs and temporary files

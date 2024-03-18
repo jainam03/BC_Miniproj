@@ -1,10 +1,14 @@
-// Replace with the address of your deployed EventContract
-const contractAddress = '0x1B03d302C548bb097E6808b7b60F33A9c9CcEE12';
+// // Import Web3 library
+const Web3 = require('web3');
+
+// Connect to a local Ethereum node or use Infura for a public node
+const web3 = new Web3('http://localhost:8545');
+
+const contractAddress = '0x9aa9ebB48CCb0E56F9f21dDc338279Fd0e629570';
 
 // Load the ABI from the compiled Solidity contract
 const abi = [
     {
-        "constant": true,
         "inputs": [
             {
                 "internalType": "uint256",
@@ -45,12 +49,11 @@ const abi = [
                 "type": "uint256"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
-        "constant": true,
         "inputs": [],
         "name": "nextId",
         "outputs": [
@@ -60,12 +63,11 @@ const abi = [
                 "type": "uint256"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
-        "constant": true,
         "inputs": [
             {
                 "internalType": "address",
@@ -86,12 +88,11 @@ const abi = [
                 "type": "uint256"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
-        "constant": false,
         "inputs": [
             {
                 "internalType": "string",
@@ -116,12 +117,10 @@ const abi = [
         ],
         "name": "createEvent",
         "outputs": [],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
     },
     {
-        "constant": false,
         "inputs": [
             {
                 "internalType": "uint256",
@@ -136,12 +135,11 @@ const abi = [
         ],
         "name": "buyTicket",
         "outputs": [],
-        "payable": true,
         "stateMutability": "payable",
-        "type": "function"
+        "type": "function",
+        "payable": true
     },
     {
-        "constant": false,
         "inputs": [
             {
                 "internalType": "uint256",
@@ -161,30 +159,27 @@ const abi = [
         ],
         "name": "transferTicket",
         "outputs": [],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
     }
 ]
 
-// Connect to a local Ethereum node or use Infura for a public node
-const web3 = new Web3('http://localhost:8545');
-
 // Create a contract instance
 const eventContract = new web3.eth.Contract(abi, contractAddress);
 
 // Function to create a new event
-async function createEvent() {
+const createEvent = async () =>{
+    console.log("event..")
     const eventName = document.getElementById('eventName').value;
     const eventDate = new Date(document.getElementById('eventDate').value).getTime() / 1000;
     const eventPrice = document.getElementById('eventPrice').value;
     const ticketCount = document.getElementById('ticketCount').value;
 
     // Use the web3.js library to send a transaction to the smart contract
-    console.log("Before calling the creteEvent function")
+    console.log("Before calling the createEvent function")
     await eventContract.methods.createEvent(eventName, eventDate, eventPrice, ticketCount)
-        .send({ from: web3.eth.defaultAccount, gas: 2000000 });
-    console.log("After calling the creteEvent function")
+        .send({ from: eth.defaultAccount, gas: 2000000 });
+    console.log("After calling the createEvent function")
 
     // Optionally, update the UI or show a success message
 }
