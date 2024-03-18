@@ -3,6 +3,7 @@ const web3 = new web3(new web3.providers.HttpProvider('http://localhost:7545'))
 
 
 const contractABI = [
+
     {
         "inputs": [
             {
@@ -45,7 +46,8 @@ const contractABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [],
@@ -58,7 +60,8 @@ const contractABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -82,7 +85,8 @@ const contractABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -128,7 +132,8 @@ const contractABI = [
         "name": "buyTicket",
         "outputs": [],
         "stateMutability": "payable",
-        "type": "function"
+        "type": "function",
+        "payable": true
     },
     {
         "inputs": [
@@ -153,7 +158,8 @@ const contractABI = [
         "stateMutability": "nonpayable",
         "type": "function"
     }
-];
+
+]
 const contractAddress = '0x2784fEC3F6ccb38b9dB9f7186f463fa7969bcD21';
 
 const eventContract = new web3.eth.Contract(contractABI, contractAddress)
